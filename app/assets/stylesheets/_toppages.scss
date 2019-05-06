@@ -1,3 +1,48 @@
-p#tabemikako {
-  background-color:green;
+@mixin box($height,$width){
+  height: $height;
+  width: $width;
+}
+p#title {
+  padding-top: 200px;
+  color:pink;
+  text-align: center;
+  font-size:80px;
+  letter-spacing: 8px;
+  opacity: none;/*半透明カラーの透明度*/
+  filter: blur(0);/*ぼかし度*/
+  text-shadow: 0 0 10px #333;
+}
+p#name {
+  margin-top: 50px;
+  color: #FF9966;
+  text-align: center;
+  font-size: 38px;
+  opacity: none;/*半透明カラーの透明度*/
+  filter: blur(0);/*ぼかし度*/
+  text-shadow: 0 0 10px #333;
+}
+
+/*背景画像の設定をする*/
+.bgImage{
+  background: url(/top_images/umi-compressor.jpeg) no-repeat center;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  z-index: 0;
+
+}
+
+/*:beforeにぼかし効果を設定する*/
+.bgImage:before{
+  content: '';
+  position: absolute;
+  /* 輪郭がぼやけてしまうのでブラー範囲を広げる */
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  background: inherit;
+  filter: blur(5px);
+  z-index: -1;
 }
